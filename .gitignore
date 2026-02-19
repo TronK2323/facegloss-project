@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+
+# Data (no subir datos reales)
+01-data/raw/*.csv
+01-data/raw/*.json
+01-data/processed/*.csv
+01-data/processed/*.json
+
+# Credentials
+credentials.json
+config.py
+.env
+*.key
+
+# Reports
+04-reports/graphs/*.png
+04-reports/graphs/*.jpg
+04-reports/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
