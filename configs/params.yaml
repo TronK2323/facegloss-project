@@ -1,0 +1,6 @@
+seed: 42
+churn:
+  reference_date: "2025-01-01"
+  threshold_days: 180
+recommender:
+  top_k: 5

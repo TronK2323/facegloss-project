@@ -2,6 +2,14 @@ from pathlib import Path
 import subprocess
 import sys
 
+ROOT = Path(__file__).resolve().parents[1]
+SRC_PATH = ROOT / 'src'
+if str(SRC_PATH) not in sys.path:
+    sys.path.insert(0, str(SRC_PATH))
+
+from facegloss.features import delta_pct
+from facegloss.recommender import top_k_default
+
 
 def test_dashboard_header_typo_fixed():
     content = Path('dashboard_facegloss.py').read_text(encoding='utf-8')
@@ -31,3 +39,14 @@ def test_readme_describes_current_structure():
     assert 'dashboard_facegloss.py' in readme
     assert '01-data/' in readme
     assert '04-reports/' in readme
+    assert 'src/facegloss/' in readme
+
+
+def test_delta_pct_edges():
+    assert delta_pct(10, 0) == 0.0
+    assert delta_pct(120, 100) == 20.0
+    assert delta_pct(80, 100) == -20.0
+
+
+def test_default_top_k_positive():
+    assert top_k_default() > 0
