@@ -1,6 +1,6 @@
 """
 FACEGLOSS — Dashboard Ejecutivo v4.0
-Paleta: Lila suave + Crema blanco — Estilo luxury beauty
+Paleta: Lila suave + Crema blanca — Estilo luxury beauty
 pip install streamlit plotly pandas numpy scikit-learn
 streamlit run dashboard_facegloss.py
 """
