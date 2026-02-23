@@ -707,7 +707,7 @@ if seccion == "📊  Resumen General":
                 f'</div></div>',
                 unsafe_allow_html=True
             )
-            st.plotly_chart(mini_spark(spk,clr), use_container_width=True,
+            st.plotly_chart(mini_spark(spk,clr), width="stretch",
                             config={'displayModeBar':False})
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
@@ -724,7 +724,7 @@ if seccion == "📊  Resumen General":
             hovertemplate='<b>%{x}</b><br>%{y:,.0f}€<extra></extra>'
         ))
         fig.update_layout(**make_layout(height=300, xaxis_tickangle=-45, showlegend=False))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_r:
         st.markdown('<div class="sec-title">Mix canales</div>', unsafe_allow_html=True)
@@ -739,7 +739,7 @@ if seccion == "📊  Resumen General":
         ))
         fig.update_layout(**make_layout(height=300, showlegend=False,
                           margin=dict(l=10,r=10,t=30,b=10)))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
     col_a, col_b = st.columns(2)
@@ -752,7 +752,7 @@ if seccion == "📊  Resumen General":
                      labels={'importe':'€','categoria':'','año':'Año'})
         fig.update_traces(marker_line_width=0)
         fig.update_layout(**make_layout(height=320))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_b:
         st.markdown('<div class="sec-title">Segmentos RFM</div>', unsafe_allow_html=True)
@@ -765,7 +765,7 @@ if seccion == "📊  Resumen General":
             hovertemplate='<b>%{y}</b><br>%{x:,} clientes<extra></extra>'
         ))
         fig.update_layout(**make_layout(height=320, showlegend=False))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
 # ═══════════════════════════════════════════════════════
 # P2 — VENTAS & PRODUCTOS
@@ -787,7 +787,7 @@ elif seccion == "🛍️  Ventas & Productos":
     ))
     fig.update_layout(**make_layout(height=380, showlegend=False))
     fig.update_yaxes(gridcolor='rgba(0,0,0,0)')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
 
@@ -807,7 +807,7 @@ elif seccion == "🛍️  Ventas & Productos":
                                  hovertemplate='Total: %{y:,.0f}€<extra></extra>'), secondary_y=True)
         fig.update_layout(**make_layout(height=360, barmode='stack', xaxis_tickangle=-45))
         fig.update_yaxes(showgrid=False, secondary_y=True)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with tab_t:
         vt2 = df_f.groupby(['trimestre','categoria'])['importe'].sum().reset_index()
@@ -816,7 +816,7 @@ elif seccion == "🛍️  Ventas & Productos":
                      labels={'importe':'€','trimestre':'','categoria':''})
         fig.update_traces(marker_line_width=0)
         fig.update_layout(**make_layout(height=360))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with tab_a:
         va2 = df_f.groupby(['año','categoria'])['importe'].sum().reset_index()
@@ -825,7 +825,7 @@ elif seccion == "🛍️  Ventas & Productos":
                      labels={'importe':'€','categoria':'','año':'Año'})
         fig.update_traces(marker_line_width=0)
         fig.update_layout(**make_layout(height=360))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
     col_a, col_b = st.columns(2)
@@ -843,7 +843,7 @@ elif seccion == "🛍️  Ventas & Productos":
             showscale=True
         ))
         fig.update_layout(**make_layout(height=300))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_b:
         st.markdown('<div class="sec-title">Distribución descuentos</div>', unsafe_allow_html=True)
@@ -857,7 +857,7 @@ elif seccion == "🛍️  Ventas & Productos":
         ))
         fig.update_layout(**make_layout(height=300, showlegend=False,
                           margin=dict(l=10,r=10,t=30,b=10)))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
 # ═══════════════════════════════════════════════════════
 # P3 — SEGMENTACIÓN RFM
@@ -920,7 +920,7 @@ elif seccion == "👥  Segmentación RFM":
             ))
         fig.update_layout(**make_layout(height=380,
                           xaxis_title='Frecuencia', yaxis_title='Gasto total (€)'))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_rd:
         rd = rfm_f.groupby('segmento_nombre')[['recencia','frecuencia','monetario']].mean()
@@ -949,7 +949,7 @@ elif seccion == "👥  Segmentación RFM":
                 legend=dict(bgcolor='rgba(0,0,0,0)',font_color=TEXT_M,font_size=10),
                 margin=dict(l=30,r=80,t=40,b=30)
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
     st.markdown('<div class="sec-title">Validación ML vs perfil real</div>', unsafe_allow_html=True)
@@ -966,7 +966,7 @@ elif seccion == "👥  Segmentación RFM":
             hovertemplate='ML: %{y}<br>Real: %{x}<br>%{z:.1f}%<extra></extra>'
         ))
         fig.update_layout(**make_layout(height=300))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
 # ═══════════════════════════════════════════════════════
 # P4 — RECOMENDADOR
@@ -1022,7 +1022,7 @@ elif seccion == "🤖  Recomendador":
     }
     for col_,(lej,cej) in zip(cols_ej, ej_map.items()):
         with col_:
-            if st.button(f"{lej} · {cej}", use_container_width=True, key=f"ej_{cej}"):
+            if st.button(f"{lej} · {cej}", width="stretch", key=f"ej_{cej}"):
                 cust_in = cej; btn = True
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
@@ -1073,7 +1073,7 @@ elif seccion == "🤖  Recomendador":
                 ))
                 fig_h.update_layout(**make_layout(height=max(200,len(hist)*45), showlegend=False))
                 fig_h.update_yaxes(gridcolor='rgba(0,0,0,0)')
-                st.plotly_chart(fig_h, use_container_width=True)
+                st.plotly_chart(fig_h, width="stretch")
 
             with cr:
                 st.markdown(f'<div class="sec-title" style="font-size:1.3rem">Top {top_nr} recomendaciones</div>', unsafe_allow_html=True)
@@ -1122,7 +1122,7 @@ elif seccion == "🤖  Recomendador":
                 fig_s.update_layout(**make_layout(height=380))
                 fig_s.update_layout(xaxis=dict(tickangle=-35,tickfont_size=9,gridcolor=CREAM_DD))
                 fig_s.update_layout(yaxis=dict(tickfont_size=9,gridcolor=CREAM_DD))
-                st.plotly_chart(fig_s, use_container_width=True)
+                st.plotly_chart(fig_s, width="stretch")
     else:
         st.markdown(
             f'<div style="background:white;border:1.5px dashed {CREAM_DD};'
@@ -1202,7 +1202,7 @@ elif seccion == "🚨  Alertas Churn":
         fig.update_layout(**make_layout(height=280, showlegend=False,
                           xaxis_title='Nº de clientes'))
         fig.update_yaxes(gridcolor='rgba(0,0,0,0)')
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_r:
         st.markdown('<div class="sec-title">Curva ROC</div>', unsafe_allow_html=True)
@@ -1221,7 +1221,7 @@ elif seccion == "🚨  Alertas Churn":
         fig.update_layout(**make_layout(height=280,
                           xaxis_title='False Positive Rate',
                           yaxis_title='True Positive Rate'))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
 
@@ -1244,7 +1244,7 @@ elif seccion == "🚨  Alertas Churn":
         fig.update_layout(**make_layout(height=300, showlegend=False,
                           xaxis_title='Importancia relativa'))
         fig.update_yaxes(gridcolor='rgba(0,0,0,0)')
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     with col_b:
         st.markdown('<div class="sec-title">Riesgo por segmento RFM</div>', unsafe_allow_html=True)
@@ -1266,7 +1266,7 @@ elif seccion == "🚨  Alertas Churn":
             ))
         fig.update_layout(**make_layout(height=300, barmode='stack',
                           yaxis_title='% clientes'))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     st.markdown("<div class='hr'></div>", unsafe_allow_html=True)
 
@@ -1311,7 +1311,7 @@ elif seccion == "🚨  Alertas Churn":
         f'</div>',
         unsafe_allow_html=True)
 
-    st.dataframe(alerta_df, use_container_width=True, height=420, hide_index=True)
+    st.dataframe(alerta_df, width="stretch", height=420, hide_index=True)
 
     st.markdown(
         f'<div style="font-size:0.78rem;color:{TEXT_L};margin-top:8px;">'
@@ -1348,7 +1348,7 @@ elif seccion == "📋  Tabla de Detalle":
     ds.columns = ['Fecha','Pedido','Cliente','Segmento','Ciudad','Canal',
                   'Categoría','Producto','Uds.','Precio unit.','Descuento','Importe']
 
-    st.dataframe(ds, use_container_width=True, height=500, hide_index=True)
+    st.dataframe(ds, width="stretch", height=500, hide_index=True)
 
     cr1,cr2,cr3 = st.columns(3)
     with cr1:

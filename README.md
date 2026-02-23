@@ -1,30 +1,65 @@
 # Facegloss AI Project
 
-Proyecto de optimización mediante Inteligencia Artificial para Facegloss.eu
+Proyecto de optimizacion con IA para Facegloss.eu. Este repositorio incluye analisis, modelos y dashboard ejecutivo.
 
-## Estructura del Proyecto
+## Estructura profesional
 
-- `01-data/` - Datos del proyecto
-  - `raw/` - Datos sin procesar de Shopify
-  - `processed/` - Datos limpios y procesados
-  - `exports/` - Exportaciones para entregar a cliente
-  
-- `02-notebooks/` - Jupyter notebooks de análisis
+01-data/
+- raw/
+- interim/
+- processed/
+- exports/
 
-- `03-scripts/` - Scripts de Python
+02-notebooks/
 
-- `04-reports/` - Reportes y visualizaciones
-  - `graphs/` - Gráficos generados
-  - `weekly-reports/` - Reportes semanales
-  - `final-deliverables/` - Entregables finales
-  
-- `05-dashboards/` - Dashboards interactivos
+03-scripts/
+
+04-reports/
+- graphs/
+- weekly-reports/
+- final-deliverables/
+
+05-dashboards/
+
+06-docs/
+
+07-tests/
+- unit/
+- integration/
+
+08-config/
+
+09-logs/
+
+## Arranque rapido (PowerShell)
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python 03-scripts/verificar_todo.py
+streamlit run dashboard_facegloss.py
+```
+
+## Dependencias
+
+- `requirements.txt`: minimo para dashboard y flujo principal.
+- `requirements-dev.txt`: extras para notebooks y analisis avanzado.
+
+## Verificacion automatica
+
+El script `03-scripts/verificar_todo.py`:
+1. crea carpetas faltantes,
+2. valida archivos clave,
+3. revisa librerias requeridas y opcionales,
+4. ejecuta chequeo de sintaxis.
 
 ## Autor
 
-[Bernat Casals Riera]
-[Bernatcasalsriera@gmail.com]
+Bernat Casals Riera
+bernatcasalsriera@gmail.com
 
-## Fecha de Inicio
+## Inicio del proyecto
 
-[16/02/2026]
+16/02/2026

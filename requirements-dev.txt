@@ -1,0 +1,9 @@
+-r requirements.txt
+beautifulsoup4>=4.12
+lightgbm>=4.5
+matplotlib>=3.9
+openpyxl>=3.1
+requests>=2.32
+seaborn>=0.13
+tqdm>=4.66
+jupyter>=1.1

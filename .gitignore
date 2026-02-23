@@ -6,13 +6,22 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 *.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Data (no subir datos reales)
+# Data (do not commit real customer data)
 01-data/raw/*.csv
 01-data/raw/*.json
+01-data/raw/*.parquet
+01-data/interim/*.csv
+01-data/interim/*.json
+01-data/interim/*.parquet
 01-data/processed/*.csv
 01-data/processed/*.json
+01-data/processed/*.parquet
 
 # Credentials
 credentials.json
@@ -25,11 +34,14 @@ config.py
 04-reports/graphs/*.jpg
 04-reports/*.pdf
 
+# Logs
+*.log
+09-logs/*
+!09-logs/.gitkeep
+
 # OS
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
 
 # IDEs
 .vscode/
@@ -39,6 +51,3 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
-
-# Logs
-*.log
