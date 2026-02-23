@@ -50,3 +50,20 @@ def test_delta_pct_edges():
 
 def test_default_top_k_positive():
     assert top_k_default() > 0
+
+
+def test_dashboard_uses_shared_delta_pct():
+    content = Path('dashboard_facegloss.py').read_text(encoding='utf-8')
+    assert 'from facegloss.features import delta_pct' in content
+    assert 'def delta_pct(' not in content
+
+
+def test_run_pipeline_smoke_runs_without_crashing():
+    result = subprocess.run(
+        [sys.executable, '03-scripts/run_pipeline.py'],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 0
+    assert '[Facegloss] Inicio de pipeline' in result.stdout

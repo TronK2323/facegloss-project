@@ -21,6 +21,16 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, roc_curve, classification_report
 
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent
+SRC_DIR = ROOT_DIR / 'src'
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from facegloss.features import delta_pct
+
 st.set_page_config(
     page_title="Facegloss · Dashboard",
     page_icon="🌸",
@@ -302,9 +312,6 @@ def mini_spark(series, color=LILAC):
         xaxis=dict(visible=False), yaxis=dict(visible=False), showlegend=False
     )
     return fig
-
-def delta_pct(a, b):
-    return (a-b)/b*100 if b else 0
 
 def fmt_delta(pct, suffix=''):
     arrow = '↑' if pct >= 0 else '↓'
